@@ -141,6 +141,9 @@ $(function(){
     event.preventDefault();
     input = parseInt($("#input").val());
     isValid(input);
-    $("#results").text(output);
+    // $("#results").text(output);
+    $("#axis").show();
+    $("p").append("<p class='move-up' id='results'>"+output +"</p>")
+    
   });//end
 });
