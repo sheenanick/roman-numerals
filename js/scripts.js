@@ -26,7 +26,9 @@ var romanNumerals = function(input){
     for(var i =0; i<ems ; i++){
       result += "M";
     }
-    results1.push(result);
+    if(result){
+      results1.push(result);
+    }
     result = ""
     input= input - (ems * 1000);
     ///D's
@@ -34,7 +36,9 @@ var romanNumerals = function(input){
     for(var i =0; i<dees ; i++){
       result += "D";
     }
-    results1.push(result);
+    if(result){
+      results1.push(result);
+    }
     result = ""
     input= input - (dees * 500);
     /////C's
@@ -42,7 +46,9 @@ var romanNumerals = function(input){
     for(var i =0; i<cees ; i++){
       result += "C";
     }
-    results1.push(result);
+    if(result){
+      results1.push(result);
+    }
     result = ""
     input= input - (cees * 100);
     //// L's
@@ -50,7 +56,9 @@ var romanNumerals = function(input){
     for(var i =0; i<ells ; i++){
       result += "L";
     }
-    results1.push(result);
+    if(result){
+      results1.push(result);
+    }
     result = ""
     input= input - (ells * 50);
     /// X's
@@ -58,7 +66,9 @@ var romanNumerals = function(input){
     for(var i =0; i<exes ; i++){
       result += "X";
     }
-    results1.push(result);
+    if(result){
+      results1.push(result);
+    }
     result = ""
     input= input - (exes * 10);
     ///V's
@@ -66,7 +76,9 @@ var romanNumerals = function(input){
     for(var i =0; i<vees ; i++){
       result += "V";
     }
-    results1.push(result);
+    if(result){
+      results1.push(result);
+    }
     result = ""
     input= input - (vees * 5);
     /// I's
@@ -74,13 +86,21 @@ var romanNumerals = function(input){
     for(var i =0; i<eyes ; i++){
       result += "I";
     }
-    results1.push(result);
+    if(result){
+      results1.push(result);
+    }
     result = ""
     input= input - (eyes * 1);
-
   }//end if valid
 }//end romanNumerals
 
+var eliminator = function(){
+  for(var i = 0; i<results1.length; i++){
+    if( results1[i].length ===  4){
+      
+    }
+  } //end for
+} //end eliminator
 
 
 
@@ -88,10 +108,11 @@ var romanNumerals = function(input){
 
 $(function(){
   $("form").submit(function(event){
-    $("#results").text("");
     event.preventDefault();
     input = parseInt($("#input").val());
-    output = romanNumerals(input);
-    $("#results").text(results1);
+    romanNumerals(input);
+    eliminator();
+    output = results1.join(" ");
+    $("#results").text(output);
   });//end
 });
