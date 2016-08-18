@@ -8,8 +8,9 @@ var ells;
 var exes;
 var vees;
 var eyes;
-var results1 = []; //array with mulitiples of four
-var results2 = [] //finalized array without mulitples of four
+var results1 = [""]; //quotations keep an empty placeholder. absolutely necessary
+var results2 = []; //finalized array without mulitples of four
+var numeralsArray =["M", "D", "C", "L", "X", "V", "I"];
 
 var isValid = function(input){
   if((isNaN(input)) || (input > 3999 ) || (input < 0)){
@@ -93,11 +94,37 @@ var romanNumerals = function(input){
     input= input - (eyes * 1);
   }//end if valid
 }//end romanNumerals
-
+// var letter;
+// var beforeLetter;
+// var whereAt;
+// var charBefore;
+// var charTwoBefore;
+var letter;
+var stringBefore;
+var beforeLetter;
+var whereAt;
+var charBefore;
+var charTwoBefore;
 var eliminator = function(){
-  for(var i = 0; i<results1.length; i++){
-    if( results1[i].length ===  4){
-      
+  for(var i = 1; i<results1.length; i++){
+     letter = results1[i].charAt(0);
+     stringBefore = results1[i-1];
+     beforeLetter = stringBefore.charAt(0);
+     whereAt = numeralsArray.indexOf(letter);
+     charBefore = numeralsArray[whereAt-1];
+     charTwoBefore = numeralsArray[whereAt-2];
+     if(results1[i].length ===  4){
+      console.log("too many digits");
+      if(beforeLetter === charBefore){
+        results2.pop();
+        results2.push(letter + charTwoBefore);
+      }
+      else{
+        results2.push(letter + charBefore)
+      }
+    }//end if more than 4 in a row
+    else{
+      results2.push(results1[i]);
     }
   } //end for
 } //end eliminator
