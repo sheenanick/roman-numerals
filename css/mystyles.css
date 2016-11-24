@@ -11,6 +11,9 @@ h1{
   font-size: 12em;
   color: white;
 }
+.axis-div {
+  height: 100px;
+}
 #results{
   font-family: 'Seymour One', sans-serif;
   font-size: 54px;
