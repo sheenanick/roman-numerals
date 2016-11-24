@@ -9,7 +9,7 @@ var exes;
 var vees;
 var eyes;
 var results1 = [""]; //quotations keep an empty placeholder. absolutely necessary
-var results2 = []; //finalized array without mulitples of four
+var results2 = []; //finalized array without multiples of four
 var numeralsArray =["M", "D", "C", "L", "X", "V", "I"];
 var letter;
 var stringBefore;
@@ -30,34 +30,34 @@ var isValid = function(input){
 
 var converter = function(input){
   ems = Math.floor(input/1000);
-  for(var i =0; i<ems ; i++){
+  for(var i = 0; i<ems ; i++){
     result += "M";
   }
   if(result){
     results1.push(result);
   }
   result = ""
-  input= input - (ems * 1000);
+  input = input - (ems * 1000);
   ///D's
   dees = Math.floor(input/500);
-  for(var i =0; i<dees ; i++){
+  for(var i = 0; i<dees ; i++){
     result += "D";
   }
   if(result){
     results1.push(result);
   }
   result = ""
-  input= input - (dees * 500);
+  input = input - (dees * 500);
   /////C's
   cees = Math.floor(input/100);
-  for(var i =0; i<cees ; i++){
+  for(var i = 0; i<cees ; i++){
     result += "C";
   }
   if(result){
     results1.push(result);
   }
   result = ""
-  input= input - (cees * 100);
+  input = input - (cees * 100);
   //// L's
   ells = Math.floor(input/50);
   for(var i =0; i<ells ; i++){
@@ -67,37 +67,37 @@ var converter = function(input){
     results1.push(result);
   }
   result = ""
-  input= input - (ells * 50);
+  input = input - (ells * 50);
   /// X's
   exes = Math.floor(input/10);
-  for(var i =0; i<exes ; i++){
+  for(var i = 0; i<exes ; i++){
     result += "X";
   }
   if(result){
     results1.push(result);
   }
   result = ""
-  input= input - (exes * 10);
+  input = input - (exes * 10);
   ///V's
   vees = Math.floor(input/5);
-  for(var i =0; i<vees ; i++){
+  for(var i = 0; i<vees ; i++){
     result += "V";
   }
   if(result){
     results1.push(result);
   }
   result = ""
-  input= input - (vees * 5);
+  input = input - (vees * 5);
   /// I's
   eyes =input
-  for(var i =0; i<eyes ; i++){
+  for(var i = 0; i<eyes ; i++){
     result += "I";
   }
   if(result){
     results1.push(result);
   }
   result = ""
-  input= input - (eyes * 1);
+  input = input - (eyes * 1);
   eliminator();
 }//end converter
 
@@ -128,10 +128,15 @@ var eliminator = function(){
 $(function(){
   $("form").submit(function(event){
     event.preventDefault();
+    output = "";
+    result = "";
+    results1 = [""];
+    results2 = [];
+    $("p").remove();
     input = parseInt($("#input").val());
     isValid(input);
     $("#axis").show();
-    $("p").append("<p class='move-up' id='results'>"+output +"</p>")
+    $("#axis").append("<p id='results'>"+output +"</p>")
 
   });//end
 });
