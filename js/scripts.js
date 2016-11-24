@@ -20,7 +20,6 @@ var charTwoBefore;
 
 var isValid = function(input){
   if((isNaN(input)) || (input > 3999 ) || (input < 0)){
-    alert("afafa");
     output = "No! All entries must be a whole number between 1 and 3999";
     return false;
   }
@@ -101,11 +100,6 @@ var converter = function(input){
   input= input - (eyes * 1);
   eliminator();
 }//end converter
-// var letter;
-// var beforeLetter;
-// var whereAt;
-// var charBefore;
-// var charTwoBefore;
 
 var eliminator = function(){
   for(var i = 1; i<results1.length; i++){
@@ -116,7 +110,6 @@ var eliminator = function(){
      charBefore = numeralsArray[whereAt-1];
      charTwoBefore = numeralsArray[whereAt-2];
      if(results1[i].length ===  4){
-      console.log("too many digits");
       if(beforeLetter === charBefore){
         results2.pop();
         results2.push(letter + charTwoBefore);
@@ -132,18 +125,13 @@ var eliminator = function(){
   output = results2.join("");
 } //end eliminator
 
-
-
-
-
 $(function(){
   $("form").submit(function(event){
     event.preventDefault();
     input = parseInt($("#input").val());
     isValid(input);
-    // $("#results").text(output);
     $("#axis").show();
     $("p").append("<p class='move-up' id='results'>"+output +"</p>")
-    
+
   });//end
 });
